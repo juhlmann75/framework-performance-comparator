@@ -11,8 +11,8 @@ Tool to compare the performance of various frameworks
 **Install dependencies**
 
 ```bash
-$ cd k6
-$ yarn install
+cd k6
+yarn install
 ```
 
 ## Running the test
@@ -20,7 +20,7 @@ $ yarn install
 To run a test written in TypeScript, we first have to transpile the TypeScript code into JavaScript and bundle the project
 
 ```bash
-$ yarn webpack
+yarn webpack
 ```
 
 This command creates the final test files to the `./k6/dist` folder.
@@ -28,7 +28,23 @@ This command creates the final test files to the `./k6/dist` folder.
 Once that is done, we can run our script the same way we usually do, for instance:
 
 ```bash
-$ k6 run dist/get-200-status-test.js
+k6 run dist/get-200-status-test.js
+```
+
+Run script and output results to a csv file:
+
+```bash
+k6 run --out csv=output/test_results.csv dist/get-200-status-test.js
+```
+Environment variables:
+
+- DURATION=1m
+- VUS=10
+
+Example of using environment variables:
+
+```bash
+k6 run -e VUS=10 -e DURATION=1m --out csv=output/test_results.csv dist/get-200-status-test.js
 ```
 
 ## Writing tests
