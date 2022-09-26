@@ -4,6 +4,7 @@ import http from 'k6/http';
 
 const vus = __ENV.VUS ? parseInt(__ENV.VUS) : 10;
 const duration = __ENV.DURATION ? __ENV.DURATION : '1m';
+const endpoint = __ENV.ENDPOINT ? __ENV.ENDPOINT : 'http://localhost:8080/test';
 
 export let options:Options = {
     stages: [
@@ -13,7 +14,7 @@ export let options:Options = {
 };
 
 export default () => {
-    const res = http.get('http://localhost:8080/test');
+    const res = http.get(endpoint);
     check(res, {
         'status is 200': () => res.status === 200,
     });

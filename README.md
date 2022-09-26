@@ -40,11 +40,12 @@ Environment variables:
 
 - DURATION=1m
 - VUS=10
+- ENDPOINT=http://localhost:8080/test
 
 Example of using environment variables:
 
 ```bash
-k6 run -e VUS=10 -e DURATION=1m --out csv=output/test_results.csv dist/get-200-status-test.js
+k6 run -e VUS=10 -e DURATION=1m -e ENDPOINT=http://localhost:8080/test --out csv=output/test_results.csv dist/get-200-status-test.js
 ```
 
 ## Writing tests

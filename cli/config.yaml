@@ -1,5 +1,6 @@
-endpoints:
-  - http://localhost:8080/test
+framework-endpoints:
+  springboot-mvc-tomcat: "http://localhost:8080/test"
+  spring-webflux-netty: "http://localhost:8081/test"
 
 duration: "1m"
 vus: 10
