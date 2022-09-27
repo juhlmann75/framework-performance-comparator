@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "lib": ["es2017", "dom"],
+    "allowJs": true
+  },
+  "files": ["src/index.ts"],
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es6",
+    },
+  },
+}
