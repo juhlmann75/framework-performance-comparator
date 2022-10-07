@@ -13,6 +13,7 @@ import (
 type conf struct {
 	FrameworkEndpoints map[string]string `yaml:"framework-endpoints"`
 	Duration           string            `yaml:"duration"`
+	WarmupDuration     string            `yaml:"warmup-duration"`
 	Vus                int64             `yaml:"vus"`
 }
 
@@ -38,6 +39,7 @@ func main() {
 		cmd := exec.Command("k6", "run",
 			"-e", "VUS="+strconv.FormatInt(c.Vus, 10),
 			"-e", "DURATION="+c.Duration,
+			"-e", "WARMUP_DURATION="+c.WarmupDuration,
 			"-e", "ENDPOINT="+endpoint,
 			"--out", "csv=../k6/output/"+framework+"_results.csv",
 			"../k6/dist/get-200-status-test.js")

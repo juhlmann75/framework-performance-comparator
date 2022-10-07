@@ -3,4 +3,5 @@ framework-endpoints:
   spring-webflux-netty: "http://localhost:8081/test"
 
 duration: "1m"
+warmup-duration: "30s"
 vus: 10
